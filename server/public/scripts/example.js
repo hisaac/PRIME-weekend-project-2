@@ -15,7 +15,6 @@ $(document).ready(function() {
     })
 });
 
-
 function init() {
     timeOutTimer = setInterval(intervalUpdate, intervalFadeTimer)
     createCarousel(peopleArray);
