@@ -25,10 +25,12 @@ function appendData(){
                 // getAvatar(individual.git_username);
 
                 $('#peopleContainer').append(
-                    '<div class="personInfo">' +
+                    '<div class="person-info">' +
                         '<p>' + individual.name + '</p>' +
-                        // '<img src="' + avatarUrl + '" alt="' + individual.name +
-                        // '\'s GitHub avatar"/>' +
+                        '<img class="avatar" src="' + avatarUrl + '" alt="'
+                            + individual.name + '\'s GitHub avatar"/>' +
+                        '<p>' + individual.git_username + '</p>' +
+                        '<p>' + individual.shoutout + '</p>' +
                     '</div>'
                 );
             }

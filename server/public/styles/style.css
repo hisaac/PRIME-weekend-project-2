@@ -3,8 +3,14 @@ body {
   text-align: center;
 }
 
-.personInfo {
-  float: none;
+.person-info {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.avatar {
+  height: 388px;
+  width: 388px;
 }
 
 #leftArrow {
