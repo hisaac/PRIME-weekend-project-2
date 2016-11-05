@@ -2,3 +2,19 @@ body {
   font-family: sans-serif;
   text-align: center;
 }
+
+.personInfo {
+  float: none;
+}
+
+#leftArrow {
+  float: left;
+  height: 50px;
+  width: 50px;
+}
+
+#rightArrow {
+  float: right;
+  height: 50px;
+  width: 50px;
+}
