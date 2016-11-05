@@ -1,22 +1,17 @@
 //----------------------------- GLOBAL VARIABLES -----------------------------//
 
+// placeholder — gets reassigned if getAvatar is called
 var avatarUrl = 'http://lorempixel.com/388/388/';
-
-//------------------------------ INITIALIZATION ------------------------------//
-
-$(document).ready(function(){
-    init();
-});
 
 //---------------------------------- LOGIC -----------------------------------//
 
-function init(){
+$(document).ready(function(){
     getData();
-}
+});
 
 //-------------------------------- FUNCTIONS ---------------------------------//
 
-// grabs data from the database and apppends it to the DOM
+// grabs data from the database
 function getData(){
     $.ajax({
         type: 'GET',
@@ -33,6 +28,7 @@ function getData(){
     });
 }
 
+// appends data to DOM
 function appendData(individual){
     $('#peopleContainer').append(
         '<div class="individual-info">' +
