@@ -1,6 +1,6 @@
 //----------------------------- GLOBAL VARIABLES -----------------------------//
 
-var avatarUrl = '';
+var avatarUrl = 'http://lorempixel.com/388/388/';
 
 //---------------------------------- LOGIC -----------------------------------//
 
@@ -26,11 +26,14 @@ function appendData(){
 
                 $('#peopleContainer').append(
                     '<div class="person-info">' +
-                        '<p>' + individual.name + '</p>' +
+                        '<h2>' + individual.name + '</h2>' +
                         '<img class="avatar" src="' + avatarUrl + '" alt="'
                             + individual.name + '\'s GitHub avatar"/>' +
-                        '<p>' + individual.git_username + '</p>' +
-                        '<p>' + individual.shoutout + '</p>' +
+                        '<p>GitHub: <a href="http://github.com/' +
+                            individual.git_username + '">' +
+                            individual.git_username + '</a>' +
+                        '</p>' +
+                        '<p class="shoutout">"' + individual.shoutout + '"</p>' +
                     '</div>'
                 );
             }
@@ -41,16 +44,16 @@ function appendData(){
     });
 }
 
-// function getAvatar (username) {
-//     $.ajax({
-//         type: 'GET',
-//         async: false,
-//         url: 'https://api.github.com/users/' + username,
-//         success: function(data){
-//             avatarUrl = data.avatar_url;
-//         },
-//         error: function(){
-//             console.log('Error with request');
-//         }
-//     });
-// }
+function getAvatar (username) {
+    $.ajax({
+        type: 'GET',
+        async: false,
+        url: 'https://api.github.com/users/' + username,
+        success: function(data){
+            avatarUrl = data.avatar_url;
+        },
+        error: function(){
+            console.log('Error with request');
+        }
+    });
+}

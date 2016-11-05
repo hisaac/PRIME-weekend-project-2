@@ -1,26 +1,33 @@
 body {
   font-family: sans-serif;
-  text-align: center;
 }
 
 .person-info {
   width: 400px;
   margin: 0 auto;
+  float: left;
 }
 
 .avatar {
   height: 388px;
   width: 388px;
+  border-radius: 6px;
 }
 
-#leftArrow {
+.shoutout {
+  text-align: left;
+}
+
+.arrow {
+  height: 50px;
+  width: 50px;
   float: left;
-  height: 50px;
-  width: 50px;
+  margin: 250px 20px 20px 20px;
 }
 
-#rightArrow {
-  float: right;
-  height: 50px;
-  width: 50px;
+#carousel {
+  width: 600px;
+  margin: 0 auto;
+  flex: auto;
+  text-align: center;
 }
