@@ -1,17 +1,31 @@
 //----------------------------- GLOBAL VARIABLES -----------------------------//
 
+var peopleArray = [];
+
 // placeholder — gets reassigned if getAvatar is called
 var avatarUrl = 'http://lorempixel.com/388/388/';
+
 
 //---------------------------------- LOGIC -----------------------------------//
 
 $(document).ready(function(){
-    getData();
+    $.ajax({
+        type: 'GET',
+        url: '/data',
+        success: function(response){
+            peopleArray = response.sigmanauts;
+            // init();
+        }
+    });
 });
 
 //-------------------------------- FUNCTIONS ---------------------------------//
 
-// grabs data from the database
+function init(){
+
+}
+
+// grabs data from the server
 function getData(){
     $.ajax({
         type: 'GET',
@@ -35,7 +49,8 @@ function appendData(individual){
             '<h2>' + individual.name + '</h2>' +
 
             '<a href="http://github.com/' + individual.git_username + '">' +
-                '<img class="avatar" src="' + avatarUrl + '" alt="' + individual.name + '\'s GitHub avatar"/>' +
+                '<img class="avatar" src="' + avatarUrl +
+                '" alt="' + individual.name + '\'s GitHub avatar"/>' +
             '</a>' +
 
             '<p class="shoutout">"' + individual.shoutout + '"</p>' +
