@@ -3,14 +3,20 @@
 var peopleArray = [];
 var currentIndex = 0;
 var counter = 0;
+var INTERVAL_TIME = 10000;
+var interval = setInterval(next, INTERVAL_TIME);
 
 //---------------------------------- LOGIC -----------------------------------//
 
 $(document).ready(function(){
     getData();
     getAvatars();
-    appendToDOM();
-})
+    buildPoints();
+    updatePerson(peopleArray[currentIndex]);
+    updatePoints(currentIndex);
+    $('#next').on('click', next);
+    $('#previous').on('click', previous);
+});
 
 //-------------------------------- FUNCTIONS ---------------------------------//
 
@@ -41,29 +47,46 @@ function getAvatars(){
     }
 }
 
-function appendToDOM(){
+function buildPoints(){
     for (var i = 0; i < peopleArray.length; i++) {
-        appendPeople(peopleArray[i]);
-        buildIndexPoints();
+        $('#indexPoints').append('<div class="circle" id="index' + i + '"></div>');
     }
 }
 
-function appendPeople(person){
-    $('#peopleContainer').append(
-        '<div class="individual-info">' +
-            '<h2>' + person.name + '</h2>' +
-
-            '<a href="http://github.com/' + person.git_username + '">' +
-                '<img class="avatar" src="' + person.avatar +
-                '" alt="' + person.name + '\'s GitHub avatar"/>' +
-            '</a>' +
-
-            '<p class="shoutout">"' + person.shoutout + '"</p>' +
-        '</div>'
-    );
-    $('.individual-info').hide();
+function updatePerson(person){
+    $('#peopleContainer').fadeOut();
+    $('#personName').text(person.name);
+    $('#githubUsername').html(
+        'GitHub: <a href="http://github.com/' + person.git_username + '">' + person.git_username + '</a>'
+    )
+    $('#avatar').attr('src', person.avatar);
+    $('#shoutout').html('"' + person.shoutout + '"');
+    $('#peopleContainer').fadeIn();
 }
 
-function buildIndexPoints(){
-    $('#carousel').append('<div class="circle"></div>');
+function next(){
+    currentIndex++;
+    if (currentIndex === peopleArray.length) {
+        currentIndex = 0;
+    }
+    updatePerson(peopleArray[currentIndex]);
+    updatePoints(currentIndex);
+    clearInterval(interval);
+    interval = setInterval(next, INTERVAL_TIME);
+}
+
+function previous(){
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = peopleArray.length - 1;
+    }
+    updatePerson(peopleArray[currentIndex]);
+    updatePoints(currentIndex);
+    clearInterval(interval);
+    interval = setInterval(next, INTERVAL_TIME);
+}
+
+function updatePoints(index){
+    $('.circle').css('background', 'black');
+    $('#index' + index).css('background', 'red');
 }
