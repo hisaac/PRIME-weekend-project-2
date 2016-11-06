@@ -21,14 +21,13 @@ body {
   background: black;
   margin: 8px;
   display: inline-flex;
-  vertical-align: top;
 }
 
 #indexPoints {
-  width: auto;
-  float: left;
   clear: left;
   text-align: center;
+  width: 450px;
+  margin: auto;
 }
 
 #currentIndex {
