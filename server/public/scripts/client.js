@@ -58,7 +58,7 @@ function updatePerson(person){
         $('#personName').text(person.name);
         $('#githubUsername').html(
             'GitHub: <a href="http://github.com/' + person.git_username + '">' + person.git_username + '</a>'
-        )
+        );
         $('#avatar').attr('src', person.avatar);
         $('#shoutout').html('"' + person.shoutout + '"');
         $('#peopleContainer').fadeIn();
