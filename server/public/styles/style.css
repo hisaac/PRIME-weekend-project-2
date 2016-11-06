@@ -1,3 +1,7 @@
+* {
+  border: 1px solid red;
+}
+
 body {
   font-family: sans-serif;
 }
@@ -23,6 +27,21 @@ body {
   width: 50px;
   float: left;
   margin: 250px 20px 20px 20px;
+  cursor: pointer;
+}
+
+.circle {
+  height: 5px;
+  width: 5px;
+  border-radius: 5px;
+  background: black;
+  margin: 10px;
+  display: inline;
+  float: left;
+}
+
+#currentIndex {
+  background: blue;
 }
 
 #carousel {
