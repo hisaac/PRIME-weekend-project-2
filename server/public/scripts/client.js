@@ -1,8 +1,7 @@
 //----------------------------- GLOBAL VARIABLES -----------------------------//
 
 var peopleArray = [];
-var currentIndex = 0;
-var counter = 0;
+var currentIndex = 0; // tracks what index is currently visible
 var INTERVAL_TIME = 10000;
 var interval = setInterval(next, INTERVAL_TIME);
 
@@ -36,7 +35,7 @@ function getAvatars(){
         $.ajax({
             type: 'GET',
             async: false,
-            url: 'https://api.github.com/users/' + peopleArray[i].git_username,
+            url: 'https://api.github.comm/users/' + peopleArray[i].git_username,
             success: function(data){
                 peopleArray[i].avatar = data.avatar_url;
             },
