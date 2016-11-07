@@ -35,7 +35,8 @@ function getAvatars(){
         $.ajax({
             type: 'GET',
             async: false,
-            url: 'https://api.github.comm/users/' + peopleArray[i].git_username,
+            url: 'https://api.github.com/users/' + peopleArray[i].git_username,
+            // url: 'testing', // uncomment this line for testing to avoid API rate limit
             success: function(data){
                 peopleArray[i].avatar = data.avatar_url;
             },
