@@ -1,5 +1,9 @@
 # Running the Server
 
+In our second weekend challenge, we started to interact with the server using AJAX calls. A whole new world opened up!
+
+---
+
 ## Weekend Challenge 02
 
 Refer to the [jQuery AJAX lecture notes](https://github.com/kdszafranski/prime-ajax-intro) for installing and running the server.
